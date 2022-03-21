@@ -1,9 +1,13 @@
-import { Router } from "express";
+import Router from "express";
+import userController from '../controller/userController.js'
 
 const router = Router();
 
-app.use((req,res,next)=>{
-    console.log('---->:userRouter.js');
-    next();
-});
 
+router.route('/register')
+    .post(userController.register);
+
+router.route('/login')
+    .get(userController.login);
+
+export default router;

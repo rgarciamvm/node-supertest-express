@@ -1,5 +1,5 @@
 import express from 'express';
-import usersRouter from '';
+import userRouter from './routers/usersRouter.js';
 
 const app = express();
 
@@ -10,10 +10,14 @@ app.use((req,res,next)=>{
     console.log('---->:app.js');
     next();
 });
-app.get("/", (req, res) => {
-    res.status(200).send("Hello World!");
-});
 
-app.use('/user',usersRouter);
+app.use("/users",userRouter);
+
+
+// app.get("/", (req, res) => {
+//     res.status(200).send("Hello World!");
+// });
+
+//app.use('/user',usersRouter);
 
 export default app;
